@@ -1,0 +1,75 @@
+一、spring基础
+依赖注入(ioc package对应)
+	控制反转(Inversion of Control IOC)和依赖注入(dependency injection DI)在spring环境下的同等概念的，控制反转是通过依赖注入实现的。
+	依赖注入指的是容器负责创建对象和维护对象间的依赖关系，而不是通过对象本身负责自己的创建和解决自己的依赖。
+	依赖注入的主要目的是为了解耦，体现的是一种"组合"的理念。 	组合一个需要你功能的新类
+	IOC容器(ApplicationContext)负责创建bean,并通过容器将功能类注入到你需要的bean中。
+	
+	1.spring框架本身四大原则(spring所有功能的设计和实现都是基于以下四大原则的)
+		a.使用POJO进行轻量级和最小侵入式开发；
+		b.通过依赖注入和基于接口编程实现松耦合；
+		c.通过AOP和默认习惯进行声明式编程；
+		d.通过AOP和模板(template)减少模式化代码。
+		
+	2.注解
+		1.声明Bean的注解：
+			a.@Componnent 组件，没有明确的角色
+			b.@Service 组件，业务逻辑层(service)使用
+			c.@Repository组件，数据访问层(dao)使用
+			d.@Controller组件，展示层(MVC)使用
+		2.注入Bean的注解，一般情况下通用，(以下注解均可在set方法或者属性上注解)
+			a.@Autowired :spring提供的注解
+			b.@Inject	：JSR-330提供的注解
+			c.@Resource ：JSR-250提供的注解
+		3.声明配置类
+			a.@Configuration 声明当前类是一个配置类
+			b.@ComponnentScan 自动扫描包名下所有使用@Service,@Componnent,@Repository,@Controller,并自动注册为bean
+		4.使用AnnotationConfigApplicationContext作为spring的容器,接收一个配置类作为参数，获得声明配置类的bean
+			public static void main(String[] args){
+				AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+				Service service = context.getBean(Service.class);
+				//此时拿到service可以做想做的事情
+				context.close();
+			}
+			
+java配置
+	spring4.*推荐的配置方式，完全可以替代xml配置方式，也是springboot推荐的配置方式
+	通过@Configuration 和 @Bean实现
+		@Configuration 声明当前类是一个配置类，相当于spring配置的xml文件
+		@Bean 注解在方法上，声明当前方法的返回值为一个bean
+	java配置和注解配置使用原则：
+		全局配置使用java配置(如数据库、MVC配置)
+		业务bean的配置使用注解配置(如@Service,@Componnent,@Repository,@Controller)
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+		
