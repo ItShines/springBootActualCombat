@@ -1,4 +1,4 @@
-package com.springboot.actualcombat.ioc.config;
+package com.springboot.actualcombat.springbase.ioc.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Future
  */
 @Configuration
-@ComponentScan("com.springboot.actualcombat.ioc")
+@ComponentScan("com.springboot.actualcombat.springbase.ioc")
 public class DiConfig {
 
 }

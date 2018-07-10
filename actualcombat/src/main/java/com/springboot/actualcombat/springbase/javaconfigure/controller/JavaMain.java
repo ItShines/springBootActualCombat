@@ -1,7 +1,7 @@
-package com.springboot.actualcombat.javaconfigure.controller;
+package com.springboot.actualcombat.springbase.javaconfigure.controller;
 
-import com.springboot.actualcombat.javaconfigure.config.JavaConfig;
-import com.springboot.actualcombat.javaconfigure.service.UseFunctionService;
+import com.springboot.actualcombat.springbase.javaconfigure.config.JavaConfig;
+import com.springboot.actualcombat.springbase.javaconfigure.service.UseFunctionService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

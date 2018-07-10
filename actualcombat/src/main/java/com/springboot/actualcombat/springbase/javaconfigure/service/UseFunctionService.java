@@ -1,4 +1,4 @@
-package com.springboot.actualcombat.javaconfigure.service;
+package com.springboot.actualcombat.springbase.javaconfigure.service;
 
 /**
  * 使用功能类

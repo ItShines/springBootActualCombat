@@ -1,0 +1,14 @@
+package com.springboot.actualcombat.springbase.aop.service;
+
+import com.springboot.actualcombat.springbase.aop.action.Action;
+import org.springframework.stereotype.Service;
+
+/**
+ * @author Future
+ */
+@Service
+public class AnnotationService {
+    @Action(name = "注解式拦截的add操作")
+    public void add() {
+    }
+}

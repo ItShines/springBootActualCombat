@@ -1,7 +1,7 @@
-package com.springboot.actualcombat.ioc.controller;
+package com.springboot.actualcombat.springbase.ioc.controller;
 
-import com.springboot.actualcombat.ioc.config.DiConfig;
-import com.springboot.actualcombat.ioc.service.UseFunctionService;
+import com.springboot.actualcombat.springbase.ioc.config.DiConfig;
+import com.springboot.actualcombat.springbase.ioc.service.UseFunctionService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

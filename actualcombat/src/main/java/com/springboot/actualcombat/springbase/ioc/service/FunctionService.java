@@ -1,4 +1,4 @@
-package com.springboot.actualcombat.ioc.service;
+package com.springboot.actualcombat.springbase.ioc.service;
 
 import org.springframework.stereotype.Service;
 
