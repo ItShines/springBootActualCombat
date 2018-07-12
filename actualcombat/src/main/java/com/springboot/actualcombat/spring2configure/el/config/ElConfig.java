@@ -50,7 +50,7 @@ public class ElConfig {
     /**
      * 注入文件资源
      */
-    @Value("classpath:el/el.text")
+    @Value("classpath:el/el.txt")
     private Resource testFile;
 
     /**

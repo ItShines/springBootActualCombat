@@ -1,0 +1,1 @@
+准备Spring Aware加载外部资源
