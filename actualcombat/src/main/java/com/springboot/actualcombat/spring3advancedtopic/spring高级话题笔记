@@ -17,3 +17,11 @@ Spring Aware
         MessageSource接口、ApplicationEventPublisher接口和ResourceLoad接口，所以Bean继承了
         ApplicationContextAware可以获得Spring容器的所有服务，但原则上我们还是用什么接口，
         实现什么接口。
+多线程 ThreadPoolTaskExecutor
+    Spring通过任务执行器（TaskExecutor）实现多线程和并发编程，使用ThreadPoolTaskExecutor可实现一个
+        基于线程池的。 实际开发中线程都是异步的，所以配置类需要通过@EnableAsync开启对异步线程支持，并
+        在实际的Bean中通过使用@Async注解来声明其是一个异步任务。
+
+计划任务Scheduled
+    Spring3.1后，计划任务变得简单，首先通过配置类注解@EnableScheduling来开启对计划任务的支持，然后
+        在需要执行计划任务的方法上注解@Scheduled生命这是一个计划任务。
