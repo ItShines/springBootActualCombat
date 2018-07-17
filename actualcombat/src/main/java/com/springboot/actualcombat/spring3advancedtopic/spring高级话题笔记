@@ -25,3 +25,34 @@ Spring Aware
 计划任务Scheduled
     Spring3.1后，计划任务变得简单，首先通过配置类注解@EnableScheduling来开启对计划任务的支持，然后
         在需要执行计划任务的方法上注解@Scheduled生命这是一个计划任务。
+
+条件注解@Conditional
+    Spring 4 使用@Conditional注解，比Profile更通用，支持基于条件的Bean的创建。
+    @Conditional根据满足某一特定条件创建一个特定的Bean，我们可以利用这一特性，根据特定条件进行一些
+        自动的配置
+    Conditional通过实现Condition接口，并重写其matches方法来构造判断条件。
+组合注解与元注解WiselyConfiguration
+    Spring设计原则消除模板代码
+    元注解：可以注解到别的注解上的注解；被注解的注解称之为组合注解，组合注解具有元注解的功能。
+        Spring的很多注解都可以称之为元注解，而且Spring本身已经有很多组合注解，如@Configuration
+        就是一个组合@Component注解，表明这个类本身也是一个Bean。
+    @Configuration和@ComponentScan注解组合成一个组合注解。
+@Enable*注解的使用原理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
