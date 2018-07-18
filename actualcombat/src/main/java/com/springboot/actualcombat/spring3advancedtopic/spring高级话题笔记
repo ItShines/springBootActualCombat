@@ -38,6 +38,42 @@ Spring Aware
         就是一个组合@Component注解，表明这个类本身也是一个Bean。
     @Configuration和@ComponentScan注解组合成一个组合注解。
 @Enable*注解的使用原理
+    第一章
+        @EnableAspectJAutoProxy 开启对AspectJ自动代理的支持;
+        @EnableAsync            开启对异步方法的支持;
+        @EnableScheduling       开启计划任务的支持;
+    第二章
+        @EnableWebMvc           开启对Web MVC的支持;
+    第三章
+        @EnableConfigurationProperties 开启对@ConfigurationProperties注解配置Bean的支持;
+        @EnableJpaRepositories 开启对Spring Data JPA Repository的支持;
+        @EnableTransactionManagement 开启注解式事务的支持;
+        @EnableCaching          开启注解式的缓存的支持;
+    通过简单的@Enable*注解就能开启一项功能的支持，从而避免自己配置大量的代码，大大降低
+        使用难度。原因在于所有的@Enable*注解都有一个@Import注解，而@Import注解是用来导
+        入配置类的，所以说这些自动开启的实现其实是导入一些自动配置的Bean，这些导入的配
+        置方式主要分三种类型：
+    第一类:直接导入配置类(Direct Import)
+    第二类:依据选择配置类(condition)
+    第三类:动态注册Bean
+测试
+    Spring通过Spring TestContext Framework 对集成测试进行顶级支持。
+    集成测试:一般需要来自不同层的不同对象的交互，如数据库、网络连接、Ioc等
+    Spring提供了SpringJUnit4ClassRunner,它提供了Spring TestContext Framework的功能。
+        通过@ContextConfiguration来配置Application Context,通过@ActiveProfiles确定
+        活动的profile。
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+          <version>5.0.7.RELEASE</version>
+        </dependency>
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.12</version>
+        </dependency>
+
+
 
 
 
