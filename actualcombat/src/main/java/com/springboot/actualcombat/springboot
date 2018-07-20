@@ -1,0 +1,30 @@
+六、SpringBoot
+一、基本配置
+    1.入口类和@SpringBootApplication
+        @SpringBootApplication组合注解主要组合了@SpringBootConfiguration、@EnableAutoConfiguration、
+            @componentScan;若不用@SpringBootApplication则在入口类加入相应注解就行。
+        @EnableAutoConfiguration让Spring Boot根据类路径的jar包依赖为当前项目进行自动配置;
+    2.关闭特定的配置使用@SpringBootApplication注解的exclude参数;
+    3.替换banner图标:(内容可从获取--http://patorjk.com/software/taag/)
+        在src/main/resources下新建一个banner.txt文件替换内容即可
+    4.SpringBoot配置文件
+        SpringBoot使用一个全局的配置文件application.properties 或者application.yml,
+            放置在src/main/resources目录下或者类路径的/config下;
+    5.start pom
+        官方提供 start pom
+        第三方提供 start pom
+    6.如何使用xml文件配置
+        Spring Boot提倡零配置，即无xml配置。但在实际项目中，可能会有特殊要求必须使用xml配置，
+            这时可以通过Spring提供的@ImportResource来加载xml,例如：
+            @ImportResource({"classpath:some-context.xml","classpath:another-context.xml"})
+    7.外部配置：
+        Spring Boot允许使用properties文件、yaml文件或者命令行参数作为外部配置:
+        1.命令行配置:
+          Spring Boot可以是基于jar包运行的,打成jar包的程序可直接使用下面命令运行:
+            java -jar xxx.jar
+          可使用下面命令修改端口:
+            java -jar xxx.jar --server.port = 9090
+        2.常规配置属性:
+
+
+

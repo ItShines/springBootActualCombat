@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Future
  */
 @WiselyConfiguration("com.springboot.actualcombat.spring3advancedtopic.condition")
-public class ConditionConfig {
+public class WiselyConditionConfig {
     /**
      * 通过使用@Conditional注解，符合windows条件则实例化WindowsListService;
      * @return
