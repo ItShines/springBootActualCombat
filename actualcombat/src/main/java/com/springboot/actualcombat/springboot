@@ -24,7 +24,27 @@
             java -jar xxx.jar
           可使用下面命令修改端口:
             java -jar xxx.jar --server.port = 9090
-        2.常规配置属性:
+        2.常规配置属性:(ActualcombatApplication)
+            在Spring常规环境下,注入properties文件里的值的方式,通过@PropertySource指明properties
+                位置,然后通过@Value注入值即可;
+            在SpringBoot环境下,我们只需要在application.properties里定义属性,直接使用@Value注入即可。
+        3.类型安全的配置(基于properties)
+            上例中使用@Value逐个注入每个配置较为繁琐;此时SpringBoot提供了基于类型安全的配置方式,
+                通过使用@ConfigurationProperties将properties属性和一个Bean关联,实现类型安全配置.
+        4.日志配置
+            SpringBoot支持Java Util Logging、Log4J、log4J2、logback作为日志框架,默认情况下,
+                SpringBoot使用logback作为日志框架
+                配置日志文件:
+                    logging.file = D:/log/log.log
+                配置日志文件级别:
+                    logging.level.org.springframework.web = DEBUG
+        5.Profiles
+            创建不同环境配置:
+                application-dev.properties(开发环境);
+                application-prod.properties(生产环境);
+            在application.properties 里增加:
+                spring.profiles.active= prod
+        6.SpringBoot运行原理:
 
 
 
