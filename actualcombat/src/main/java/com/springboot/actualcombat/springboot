@@ -45,6 +45,18 @@
             在application.properties 里增加:
                 spring.profiles.active= prod
         6.SpringBoot运行原理:
+            SpringBoot关于自动配置的源码在spring-boot-autoconfigure-2.0.3.RELEASE.jar下,若想
+                知道SpringBoot为我们做了哪些配置,可以查看这里的源码。
+            查看当前项目中已启用和未启用的自动配置的报告:
+                1.运行时增加--debug参数:
+                    java -jar xx.jar --debug
+                2.在application.properties增加属性:
+                    debug = true
+            1.运作原理:
+
+
+
+
 
 
 
