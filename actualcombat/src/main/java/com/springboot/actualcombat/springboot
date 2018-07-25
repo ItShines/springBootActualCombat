@@ -53,7 +53,16 @@
                 2.在application.properties增加属性:
                     debug = true
             1.运作原理:
-
+                ActualcombatApplication启动类中使用@SpringBootApplication这个组合注解,它的核心
+                    功能是由@EnableAutoConfiguration注解提供的,而@EnableAutoConfiguration注解
+                    的源码中使用了@Import({AutoConfigurationImportSelector.class})导入关键的
+                    配置,使用SpringFactoriesLoader.loadFactoryNames方法扫描META-INF/spring.f
+                    -actories文件的jar包,而我们的spring-boot-autoconfigure-2.0.x.RELEASE.jar
+                    下META-INF/spring.factories里记录所有声明的自动配置 例如:# Auto Configure
+            2.核心注解:
+                在spring-boot-autoconfigure-2.0.x.RELEASE.jar下打开对应的*AutoConfiguration文件
+                一般都有如下的条件注解,在spring-boot-autoconfigure-2.0.x.RELEASE.jar包的
+                org.springframework.boot.autoconfigure.condition下,条件注解如下:
 
 
 
