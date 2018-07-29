@@ -3,6 +3,7 @@ package com.springboot.actualcombat.spring6.service;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
+ * 2.配置属性
  * @author Future
  */
 @ConfigurationProperties(prefix = "hello")
