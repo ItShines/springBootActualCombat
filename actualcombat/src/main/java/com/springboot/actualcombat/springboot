@@ -63,6 +63,66 @@
                 在spring-boot-autoconfigure-2.0.x.RELEASE.jar下打开对应的*AutoConfiguration文件
                 一般都有如下的条件注解,在spring-boot-autoconfigure-2.0.x.RELEASE.jar包的
                 org.springframework.boot.autoconfigure.condition下,条件注解如下:
+                    @ConditionalOnBean:当容器里有指定的bean的条件下。
+                    @ConditionalOnClass:当类路径下有指定的类的条件下。
+                    @ConditionalOnCloudPlatform:指定的云平台激活时满足条件。
+                    @ConditionalOnExpression:基于SpEl表达式作为判断条件。
+                    @ConditionalOnJava:基于JVM版本作为判断条件。
+                    @ConditionalOnJndi:在JNDI存在的条件下查找指定位置。
+                    @ConditionalOnMissingBean:在容器没有指定Bean的情况下。
+                    @ConditionalOnMissingClass:在类路径下没有指定的类的条件下。
+                    @ConditionalOnNotWebApplication:当前项目不是web项目的条件下。
+                    @ConditionalOnProperty:指定的属性是否有指定的值。
+                    @ConditionalOnResource:类路径是否有指定的值。
+                    @ConditionalOnSingleCandidate:当指定的Bean在容器中只有一个，活着虽然由多个但是
+                        指定首选的Bean。
+                    @ConditionalOnWebApplication:当前项目是web项目的条件下。
+                这些注解都是组合啦@Conditional元注解，只是使用了不同的条件(Condition)
+                分析@ConditionalOnWebApplication注解,暂时不做处理。
+            3.实例分析
+                SpringBoot内置自动配置功能:http编码的实现
+                常规配置:filter
+                    <filter>
+                        <filter-name>encodingFilter</filter-name>
+                        <filter-class>org.springframework.web.filter.CharacterEncodingFilter<filter-class>
+                        <init-param>
+                            <param-name>encoding</param-name>
+                            <param-value>UTF-8</param-value>
+                        </init-param>
+                        <init-param>
+                            <param-name>forceEncoding</param-name>
+                            <param-value>true</param-value>
+                        </init-param>
+                    </filter>
+                    拦截器
+                    <filter-mapping>
+                        <filter-name>encodingFilter</filter-name>
+                        <url-pattern>/*</url-pattern>
+                    /filter-mapping>
+                自动配置: 版本不同,需更新书籍
+                    需满足2条件
+                        1.能配置CharacterEncodingFilter这个Bean;
+                        2.能配置encoding和forceEncoding这两个参数。
+
+            4.实战
+                当包含某个类存在的时候,自动配置这个类的Bean,并可将Bean的属性在application.properties里配置。
+                  <dependency>
+                      <groupId>org.springframework.boot</groupId>
+                      <artifactId>spring-boot-autoconfigure</artifactId>
+                      <version>2.0.3.RELEASE</version>
+                  </dependency>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
