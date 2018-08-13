@@ -1,6 +1,5 @@
 package com.springboot.api.controller;
 
-import com.springboot.api.entity.KC27;
 import com.springboot.api.model.VisitInfoModel;
 import com.springboot.api.service.MedicalService;
 import com.springboot.api.util.BaseResponseModel;
