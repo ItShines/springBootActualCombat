@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
+
 /**
  * @author Future
  */
@@ -23,16 +25,13 @@ public class MedicalServiceImpl implements MedicalService {
      * HOSPITAL_NUMBER：医院编号
      * 两个参数为必填项！
      * @param sickVisitInfoVo
-     * @return
+     * @return SickVisitInfo
      */
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @Override
-    public SickVisitInfo findSickVisitInfo(SickVisitInfoVo sickVisitInfoVo){
+    public SickVisitInfo findSickVisitInfo(SickVisitInfoVo sickVisitInfoVo) throws Exception {
+        HashMap hashMap = medicalDao.selectDual(sickVisitInfoVo);
         SickVisitInfo sickVisitInfo = medicalDao.findSickVisitInfo(sickVisitInfoVo);
-//        hashMap.put("HOSPITAL_NUMBER", HOSPITAL_NUMBER);//医疗机构编号
-//        hashMap.put("RESIDENCE_NO", residence_no);//医保中心住院号
-//        VisitInfoVo baseDto1 = medicalDao.selectParaCaptureItem(hashMap);//医保联通
-//        VisitInfoVo baseDto = medicalDao.selectSickVisitInfo(hashMap);
         return sickVisitInfo;
     }
 

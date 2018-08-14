@@ -5,8 +5,13 @@ package com.springboot.api.vo;
  * @author Future
  */
 public class SickVisitInfoVo {
+    /**
+     * 患者医保住院登记号
+     */
     private String residenceNo;
-
+    /**
+     * 医院编号
+     */
     private String hospitalNumber;
 
     public String getResidenceNo() {

@@ -10,8 +10,10 @@ public interface  MedicalService {
 
     /**
      * 医保住院-查询是否医保中心登记
+     *
      * @param sickVisitInfoVo
-     * @return
+     * @return SickVisitInfo
+     * @throws Exception
      */
-    SickVisitInfo findSickVisitInfo(SickVisitInfoVo sickVisitInfoVo);
+    SickVisitInfo findSickVisitInfo(SickVisitInfoVo sickVisitInfoVo) throws Exception;
 }
