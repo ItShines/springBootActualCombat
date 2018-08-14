@@ -1,9 +1,10 @@
 package com.springboot.api.vo;
 
 /**
+ * 接收查询住院登记信息参数
  * @author Future
  */
-public class VisitInfoVo {
+public class SickVisitInfoVo {
     private String residenceNo;
 
     private String hospitalNumber;

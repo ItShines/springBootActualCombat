@@ -1,11 +1,10 @@
 package com.springboot.api.model;
 
-import java.util.List;
-
 /**
+ * 返回查询住院登记信息结果封装实体对象
  * @author Future
  */
-public class VisitInfoModel {
+public class SickVisitInfoModel {
     private Object data;
     private String pid = "s00001";
 

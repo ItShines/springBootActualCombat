@@ -76,11 +76,18 @@
 			<version>8.0.12</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!--jdk1.8后不支持-->
 		<!--<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
 			<version>10.2.0.4.0</version>
 		</dependency>-->
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -97,7 +104,15 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<!--防止打包xml文件不被加载-->
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>com/springboot/api/mapper/**.xml</include>
+				</includes>
+			</resource>
+		</resources>
 	</build>
-
 
 </project>

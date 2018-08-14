@@ -1,12 +1,13 @@
 package com.springboot.api.controller;
 
-import com.springboot.api.model.VisitInfoModel;
+import com.springboot.api.entity.SickVisitInfo;
+import com.springboot.api.model.SickVisitInfoModel;
 import com.springboot.api.service.MedicalService;
 import com.springboot.api.util.BaseResponseModel;
 import com.springboot.api.util.GsonUtil;
 import com.springboot.api.util.RequestVelueUtil;
 import com.springboot.api.util.ResponseCodeConstant;
-import com.springboot.api.vo.VisitInfoVo;
+import com.springboot.api.vo.SickVisitInfoVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,10 @@ public class MedicalController {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
+    /**
+     * 测试接口
+     * @return
+     */
     @RequestMapping(value = "test")
     public @ResponseBody Object test() {
         BaseResponseModel baseResponseModel = new BaseResponseModel();
@@ -40,15 +45,20 @@ public class MedicalController {
         return baseResponseModel;
     }
 
+    /**
+     * 医保住院-查询是否医保中心登记
+     * @param request
+     * @return
+     */
     @RequestMapping("/findSickVisitInfo")
     public @ResponseBody Object findSickVisitInfo(HttpServletRequest request){
         logger.info("findSickVisitInfo() is start");
         BaseResponseModel baseResponseModel = new BaseResponseModel();
         try{
             String requestStr = RequestVelueUtil.parseRequestValue(request);
-            VisitInfoVo visitInfoVo = GsonUtil.strToObj(requestStr, VisitInfoVo.class);
-            VisitInfoVo sickVisitInfo = medicalService.findSickVisitInfo(visitInfoVo);
-            VisitInfoModel visitInfoModel = new VisitInfoModel();
+            SickVisitInfoVo sickVisitInfoVo = GsonUtil.strToObj(requestStr, SickVisitInfoVo.class);
+            SickVisitInfo sickVisitInfo = medicalService.findSickVisitInfo(sickVisitInfoVo);
+            SickVisitInfoModel visitInfoModel = new SickVisitInfoModel();
             visitInfoModel.setData(sickVisitInfo);
             baseResponseModel.setBody(visitInfoModel);
             baseResponseModel.setCode(responseCodeConstant.success);

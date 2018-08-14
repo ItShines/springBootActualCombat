@@ -1,12 +1,17 @@
 package com.springboot.api.service;
 
-import com.springboot.api.model.VisitInfoModel;
-import com.springboot.api.vo.VisitInfoVo;
+import com.springboot.api.entity.SickVisitInfo;
+import com.springboot.api.vo.SickVisitInfoVo;
 
 /**
  * @author Future
  */
 public interface  MedicalService {
 
-    VisitInfoVo findSickVisitInfo(VisitInfoVo visitInfoVo);
+    /**
+     * 医保住院-查询是否医保中心登记
+     * @param sickVisitInfoVo
+     * @return
+     */
+    SickVisitInfo findSickVisitInfo(SickVisitInfoVo sickVisitInfoVo);
 }
