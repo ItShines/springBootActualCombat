@@ -1,23 +1,36 @@
 package com.springboot.api.service.impl;
 
-import com.springboot.api.dao.MedicalDao;
+import com.springboot.api.dao.MedicalViewDao;
 import com.springboot.api.entity.SickVisitInfo;
-import com.springboot.api.service.MedicalService;
+import com.springboot.api.entity.ViewCode;
+import com.springboot.api.service.MedicalViewService;
 import com.springboot.api.vo.SickVisitInfoVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author Future
  */
 @Service
-public class MedicalServiceImpl implements MedicalService {
+public class MedicalViewServiceImpl implements MedicalViewService {
 
     @Autowired
-    private MedicalDao medicalDao;
+    private MedicalViewDao medicalViewDao;
+
+    /**
+     * 查询项目名称与代码的对应关系
+     * @return List<ViewCode>
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public List<ViewCode> selectViewCode() {
+//        HashMap hashMap = medicalViewDao.selectDual(sickVisitInfoVo);
+        return medicalViewDao.selectViewCode();
+    }
 
     /**
      * 医保住院-查询是否医保中心登记
@@ -30,8 +43,8 @@ public class MedicalServiceImpl implements MedicalService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public SickVisitInfo findSickVisitInfo(SickVisitInfoVo sickVisitInfoVo) throws Exception {
-        HashMap hashMap = medicalDao.selectDual(sickVisitInfoVo);
-        SickVisitInfo sickVisitInfo = medicalDao.findSickVisitInfo(sickVisitInfoVo);
+        HashMap hashMap = medicalViewDao.selectDual(sickVisitInfoVo);
+        SickVisitInfo sickVisitInfo = medicalViewDao.findSickVisitInfo(sickVisitInfoVo);
         return sickVisitInfo;
     }
 

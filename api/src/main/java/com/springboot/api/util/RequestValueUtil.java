@@ -12,9 +12,9 @@ import java.io.InputStreamReader;
 /**
  * @author Future
  */
-public class RequestVelueUtil {
+public class RequestValueUtil {
 
-    private static Logger logger = LoggerFactory.getLogger(RequestVelueUtil.class);
+    private static Logger logger = LoggerFactory.getLogger(RequestValueUtil.class);
 
     public static String parseRequestValue(HttpServletRequest request) {
         if (request != null) {

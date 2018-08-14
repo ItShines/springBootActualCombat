@@ -5,6 +5,13 @@
     <select id="selectDual" resultType="java.util.HashMap">
         SELECT SYSDATE FROM DUAL WHERE SET_PARAM(#{hospitalNumber})=#{hospitalNumber}
     </select>
+
+    <!--查询项目名称与代码的对应关系 -->
+    <select id="selectViewCode" resultType="com.springboot.api.entity.ViewCode">
+        SELECT AAA002,AAA003,AAA004,AAE100,CAA001
+        FROM VIEW_CODE
+    </select>
+
     <!--医保住院-查询是否医保中心登记-->
     <select id="findSickVisitInfo" resultType="com.springboot.api.entity.SickVisitInfo">
         SELECT *
