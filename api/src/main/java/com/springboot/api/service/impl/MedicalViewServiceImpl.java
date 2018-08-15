@@ -1,10 +1,12 @@
 package com.springboot.api.service.impl;
 
 import com.springboot.api.dao.MedicalViewDao;
+import com.springboot.api.entity.MedReceiptRecordMaster;
+import com.springboot.api.entity.ParaCaptureItem;
 import com.springboot.api.entity.SickVisitInfo;
 import com.springboot.api.entity.ViewCode;
 import com.springboot.api.service.MedicalViewService;
-import com.springboot.api.util.FinalCodeConstant;
+import com.springboot.api.util.ResponseCodeConstant;
 import com.springboot.api.vo.SickVisitInfoVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +22,7 @@ import java.util.List;
 public class MedicalViewServiceImpl implements MedicalViewService {
 
     @Autowired
-    private FinalCodeConstant finalCodeConstant;
+    private ResponseCodeConstant responseCodeConstant;
 
     @Autowired
     private MedicalViewDao medicalViewDao;
@@ -31,7 +33,7 @@ public class MedicalViewServiceImpl implements MedicalViewService {
      * @return HashMap
      */
     public HashMap selectDual(){
-        return medicalViewDao.selectDual(finalCodeConstant.hospital_number);
+        return medicalViewDao.selectDual(responseCodeConstant.hospital_number);
     }
     /**
      * 查询项目名称与代码的对应关系
@@ -42,6 +44,17 @@ public class MedicalViewServiceImpl implements MedicalViewService {
     public List<ViewCode> selectViewCode(){
         selectDual();
         return medicalViewDao.selectViewCode();
+    }
+
+    /**
+     * 医保收费项目目录视图
+     * @return List<ParaCaptureItem>
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public List<ParaCaptureItem> selectParaCaptureItem(){
+        selectDual();
+        return medicalViewDao.selectParaCaptureItem();
     }
 
     /**
@@ -58,6 +71,19 @@ public class MedicalViewServiceImpl implements MedicalViewService {
         selectDual();
         SickVisitInfo sickVisitInfo = medicalViewDao.findSickVisitInfo(sickVisitInfoVo);
         return sickVisitInfo;
+    }
+
+    /**
+     * 医保结算主信息视图
+     * 获取门诊、住院结算信息
+     * @param sickVisitInfoVo
+     * @return
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public MedReceiptRecordMaster selectMedReceiptRecordMaster(SickVisitInfoVo sickVisitInfoVo) {
+        selectDual();
+        return medicalViewDao.selectMedReceiptRecordMaster(sickVisitInfoVo);
     }
 
 }

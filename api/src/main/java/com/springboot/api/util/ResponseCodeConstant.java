@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
  * @author Future
  */
 @Component
-@PropertySource(value = "classpath:final-code.properties")
-public class FinalCodeConstant {
+@PropertySource(value = "classpath:response-code.properties")
+public class ResponseCodeConstant {
     /**
      * 医疗机构编码
      */
