@@ -4,16 +4,17 @@ import com.springboot.api.entity.SickVisitInfo;
 import com.springboot.api.entity.ViewCode;
 import com.springboot.api.vo.SickVisitInfoVo;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * @author Future
  */
 public interface  MedicalViewService {
-
     /**
      * 查询项目名称与代码的对应关系
      * @return List<ViewCode>
+     * @throws Exception
      */
     List<ViewCode> selectViewCode();
     /**
@@ -23,5 +24,5 @@ public interface  MedicalViewService {
      * @return SickVisitInfo
      * @throws Exception
      */
-    SickVisitInfo findSickVisitInfo(SickVisitInfoVo sickVisitInfoVo) throws Exception;
+    SickVisitInfo findSickVisitInfo(SickVisitInfoVo sickVisitInfoVo);
 }

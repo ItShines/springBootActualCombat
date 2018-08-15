@@ -28,7 +28,7 @@ import java.util.List;
  * @author Future
  */
 @RestController
-@RequestMapping("/view/")
+@RequestMapping("/view")
 public class MedicalViewController {
 
     @Autowired
@@ -44,9 +44,8 @@ public class MedicalViewController {
      *
      * @return
      */
-    @RequestMapping(value = "test")
-    public @ResponseBody
-    Object test() {
+    @RequestMapping(value = "/test")
+    public @ResponseBody Object test() {
         BaseResponseModel baseResponseModel = new BaseResponseModel();
         baseResponseModel.setCode(finalCodeConstant.success);
         baseResponseModel.setMessage("测试访问成功，可以正常使用！！！");
@@ -71,8 +70,9 @@ public class MedicalViewController {
             String tmp = e.getMessage();
             responseModel.setCode(finalCodeConstant.error);
             responseModel.setMessage("服务器异常！异常信息为: " + tmp.substring(tmp.indexOf("ORA-"), tmp.indexOf("The") - 7));
+            logger.info("服务器异常！异常信息为: " + tmp);
         }finally {
-            logger.info("findSickVisitInfo() is end");
+            logger.info("selectViewCode() is end");
         }
         return responseModel;
     }
@@ -85,8 +85,7 @@ public class MedicalViewController {
      * @return
      */
     @RequestMapping("/findSickVisitInfo")
-    public @ResponseBody
-    Object findSickVisitInfo(HttpServletRequest request) {
+    public @ResponseBody Object findSickVisitInfo(HttpServletRequest request) {
         logger.info("findSickVisitInfo() is start");
         BaseResponseModel baseResponseModel = new BaseResponseModel();
         try {
@@ -105,10 +104,10 @@ public class MedicalViewController {
             baseResponseModel.setCode(finalCodeConstant.success);
             baseResponseModel.setMessage("查询成功！");
         } catch (Exception e) {
-            e.printStackTrace();
             String tmp = e.getMessage();
             baseResponseModel.setCode(finalCodeConstant.error);
             baseResponseModel.setMessage("服务器异常！异常信息为: " + tmp.substring(tmp.indexOf("ORA-"), tmp.indexOf("The") - 7));
+            logger.info("服务器异常！异常信息为: " + tmp);
             e.printStackTrace();
         } finally {
             logger.info("findSickVisitInfo() is end");

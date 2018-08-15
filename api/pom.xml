@@ -120,12 +120,19 @@
 		</plugins>
 		<!--防止打包xml文件不被加载-->
 		<resources>
-			<resource>
+			<!--<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**.properties</include>
+					<include>mapper/**.xml</include>
+				</includes>
+			</resource>-->
+			<!--<resource>
 				<directory>src/main/java</directory>
 				<includes>
 					<include>com/springboot/api/mapper/**.xml</include>
 				</includes>
-			</resource>
+			</resource>-->
 		</resources>
 	</build>
 

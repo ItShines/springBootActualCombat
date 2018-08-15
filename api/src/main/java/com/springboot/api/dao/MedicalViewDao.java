@@ -5,7 +5,6 @@ import com.springboot.api.entity.ViewCode;
 import com.springboot.api.vo.SickVisitInfoVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,10 +17,10 @@ import java.util.List;
 public interface MedicalViewDao {
     /**
      * 在查询目录视图前执行
-     * @param sickVisitInfoVo
+     * @param hospitalNumber
      * @return HashMap
      */
-    HashMap selectDual(SickVisitInfoVo sickVisitInfoVo);
+    HashMap selectDual(String hospitalNumber);
 
     /**
      * 查询项目名称与代码的对应关系
