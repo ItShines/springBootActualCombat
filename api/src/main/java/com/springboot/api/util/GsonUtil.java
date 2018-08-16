@@ -1,7 +1,11 @@
 package com.springboot.api.util;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
+
 
 /**
  * @author Future
@@ -20,6 +24,16 @@ public class GsonUtil {
 		return new Gson().fromJson(str, clazz) ;
 	}
 	/**
+	 * 获取要转换成的对象类型
+	 * @return
+	 */
+	public static <T> List<T>  strToObjList(String str, Class<?> clazz) {
+		if(StringUtils.isBlank(str) || clazz == null){
+			return null;
+		}
+		return new Gson().fromJson(str, new TypeToken<List<?>>(){}.getType());
+	}
+	/**
 	 * 将对象转换成JSON
 	 * @param obj
 	 * @return
@@ -30,6 +44,5 @@ public class GsonUtil {
 		}
 		return new Gson().toJson(obj);
 	}
-	
 
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.api.dao.MedicalInterfaceDatabaseDao">
+    <!--门诊费用批量保存接口-->
+    <insert id="batchSaveKc28" parameterType="java.util.List">
+        INSERT INTO KC28(
+        AKB020,AKC220,CKC158,AAE011,
+        AAE036,AKA063,AKC222,AKC223,
+        AKC227,CKC197,CKC198,CKC159,
+        CKC160,CKC161,CKC169,CKC170,
+        CKC171,CKE081,CKE085,CKE086,
+        CKE089,CKE090,AAC002,SKA003
+        )
+        SELECT *
+        FROM
+            (<foreach collection="list" item="item" index="index" separator="UNION ALL" >
+                select
+                    #{item.AKB020},#{item.AKC220},#{item.CKC158},#{item.AAE011},
+                    to_date(#{item.AAE036},'yyyy-MM-dd HH24:mi:ss'),#{item.AKA063},#{item.AKC222},#{item.AKC223},
+                    #{item.AKC227},#{item.CKC197},#{item.CKC198},#{item.CKC159},
+                    #{item.CKC160},#{item.CKC161},#{item.CKC169},#{item.CKC170},
+                    #{item.CKC171},#{item.CKE081},#{item.CKE085},#{item.CKE086},
+                    #{item.CKE089},#{item.CKE090},#{item.AAC002},#{item.SKA003}
+                from dual
+            </foreach>)
+    </insert>
+</mapper>
