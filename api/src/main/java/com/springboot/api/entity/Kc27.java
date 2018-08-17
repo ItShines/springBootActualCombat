@@ -1,7 +1,5 @@
 package com.springboot.api.entity;
 
-import java.util.Date;
-
 /**
  * 医保住院接口表KC27
  * @author Future
@@ -27,7 +25,7 @@ public class Kc27{
     /**
      * 费用项目序号 NUMBER(6)
      */
-    private String CKC158;
+    private int CKC158;
     /**
      * 经办人
      */
@@ -35,7 +33,7 @@ public class Kc27{
     /**
      * 经办日期
      */
-    private Date AAE036;
+    private String AAE036;
     /**
      * 收费项目类别
      */
@@ -51,15 +49,15 @@ public class Kc27{
     /**
      * 金额(单价*数量后四舍五入保留两位小数) NUMBER(8,2)
      */
-    private String AKC227;
+    private double AKC227;
     /**
      * 单价(不能小于等于0，最多四位小数) NUMBER(12,4)
      */
-    private String CKC197;
+    private double CKC197;
     /**
      * 数量(不能小于等于0) NUMBER(6,2)
      */
-    private String CKC198;
+    private double CKC198;
     /**
      * 规格(汉字，诊疗项目以“/”代替)
      */
@@ -99,7 +97,7 @@ public class Kc27{
     /**
      * 换算比例 (默认1) NUMBER(8,4)
      */
-    private String CKE089;
+    private double CKE089;
     /**
      * 出院带药标志 (默认“在院用药”)
      */
@@ -145,11 +143,11 @@ public class Kc27{
         this.AKC220 = AKC220;
     }
 
-    public String getCKC158() {
+    public int getCKC158() {
         return CKC158;
     }
 
-    public void setCKC158(String CKC158) {
+    public void setCKC158(int CKC158) {
         this.CKC158 = CKC158;
     }
 
@@ -161,11 +159,11 @@ public class Kc27{
         this.AAE011 = AAE011;
     }
 
-    public Date getAAE036() {
+    public String getAAE036() {
         return AAE036;
     }
 
-    public void setAAE036(Date AAE036) {
+    public void setAAE036(String AAE036) {
         this.AAE036 = AAE036;
     }
 
@@ -193,27 +191,27 @@ public class Kc27{
         this.AKC223 = AKC223;
     }
 
-    public String getAKC227() {
+    public double getAKC227() {
         return AKC227;
     }
 
-    public void setAKC227(String AKC227) {
+    public void setAKC227(double AKC227) {
         this.AKC227 = AKC227;
     }
 
-    public String getCKC197() {
+    public double getCKC197() {
         return CKC197;
     }
 
-    public void setCKC197(String CKC197) {
+    public void setCKC197(double CKC197) {
         this.CKC197 = CKC197;
     }
 
-    public String getCKC198() {
+    public double getCKC198() {
         return CKC198;
     }
 
-    public void setCKC198(String CKC198) {
+    public void setCKC198(double CKC198) {
         this.CKC198 = CKC198;
     }
 
@@ -289,11 +287,11 @@ public class Kc27{
         this.CKE086 = CKE086;
     }
 
-    public String getCKE089() {
+    public double getCKE089() {
         return CKE089;
     }
 
-    public void setCKE089(String CKE089) {
+    public void setCKE089(double CKE089) {
         this.CKE089 = CKE089;
     }
 

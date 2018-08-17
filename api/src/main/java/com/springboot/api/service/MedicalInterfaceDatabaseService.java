@@ -1,5 +1,6 @@
 package com.springboot.api.service;
 
+import com.springboot.api.util.BaseResponseModel;
 import com.springboot.api.vo.Kc27Vo;
 import com.springboot.api.vo.Kc28Vo;
 
@@ -22,5 +23,5 @@ public interface MedicalInterfaceDatabaseService {
      * @param kc27VoList
      * @return
      */
-    int batchSaveKc27(List<Kc27Vo> kc27VoList);
+    BaseResponseModel batchSaveKc27(List<Kc27Vo> kc27VoList);
 }

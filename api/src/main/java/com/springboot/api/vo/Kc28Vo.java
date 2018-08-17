@@ -1,7 +1,5 @@
 package com.springboot.api.vo;
 
-import java.util.Date;
-
 /**
  * 医保门诊接口表KC28
  * @author Future
