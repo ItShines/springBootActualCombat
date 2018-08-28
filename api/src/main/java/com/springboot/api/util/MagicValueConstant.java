@@ -13,30 +13,30 @@ public class MagicValueConstant {
     /**
      * String
      */
-    @Value("${magicVlaue.zero}")
+    @Value("${magicValue.zero}")
     public static String zero;
 
-    @Value("${magicVlaue.one}")
+    @Value("${magicValue.one}")
     public static String one;
 
-    @Value("${magicVlaue.two}")
+    @Value("${magicValue.two}")
     public static String two;
 
-    @Value("${magicVlaue.three}")
+    @Value("${magicValue.three}")
     public static String three;
 
     /**
      * int
      */
-    @Value("${magicVlaue.zero}")
+    @Value("${magicValue.zero}")
     public static int intZero;
 
-    @Value("${magicVlaue.one}")
+    @Value("${magicValue.one}")
     public static int intOne;
 
-    @Value("${magicVlaue.two}")
+    @Value("${magicValue.two}")
     public static int intTwo;
 
-    @Value("${magicVlaue.three}")
+    @Value("${magicValue.three}")
     public static int intThree;
 }
