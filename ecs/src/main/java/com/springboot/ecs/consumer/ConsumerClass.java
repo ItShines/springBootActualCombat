@@ -17,10 +17,9 @@ public class ConsumerClass {
 
     private Logger logger = LoggerFactory.getLogger(Component.class);
 
-    @JmsListener(destination = "Queen")
+    @JmsListener(destination = "queueProducerTest")
     public void getMessage(Message message) throws JMSException {
         TextMessage textMessage = (TextMessage) message;
         logger.info("consumer收到的消息为：" + textMessage.getText());
-        System.out.println("consumer收到的消息为：" + textMessage.getText());
     }
 }
