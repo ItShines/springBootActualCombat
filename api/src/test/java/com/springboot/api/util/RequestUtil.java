@@ -18,7 +18,7 @@ public class RequestUtil {
 
     /**
      * post 请求 body
-     * 
+     *
      * @param urlSuffix
      * @param jsonStr
      * @return
@@ -53,7 +53,7 @@ public class RequestUtil {
 
     /**
      * post 请求 body
-     * 
+     *
      * @param urlSuffix
      * @param jsonStr
      * @return

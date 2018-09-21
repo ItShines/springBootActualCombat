@@ -10,6 +10,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 /**
  * 通过@EnableScheduling注解开启对计划任务的支持
+ *
  * @author Future
  */
 @Configuration

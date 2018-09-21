@@ -11,10 +11,11 @@ import java.util.List;
 /**
  * @author Future
  */
-public interface  MedicalViewService {
+public interface MedicalViewService {
 
     /**
      * 查询项目名称与代码的对应关系
+     *
      * @return List<ViewCode>
      * @throws Exception
      */
@@ -22,6 +23,7 @@ public interface  MedicalViewService {
 
     /**
      * 医保收费项目目录视图
+     *
      * @return List<ParaCaptureItem>
      */
     List<ParaCaptureItem> selectParaCaptureItem();
@@ -38,6 +40,7 @@ public interface  MedicalViewService {
     /**
      * 医保结算主信息视图
      * 获取门诊、住院结算信息
+     *
      * @param sickVisitInfoVo
      * @return
      */

@@ -4,12 +4,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * 2.配置属性
+ *
  * @author Future
  */
 @ConfigurationProperties(prefix = "hello")
 public class HelloServiceProperties {
 
-    private static final String MSG ="world";
+    private static final String MSG = "world";
 
     private String msg = MSG;
 

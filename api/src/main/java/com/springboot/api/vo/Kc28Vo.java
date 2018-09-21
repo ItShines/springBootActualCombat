@@ -2,9 +2,10 @@ package com.springboot.api.vo;
 
 /**
  * 医保门诊接口表KC28
+ *
  * @author Future
  */
-public class Kc28Vo{
+public class Kc28Vo {
     private static final long serialVersionUID = 1L;
     /**
      * 医疗机构编号
@@ -13,7 +14,7 @@ public class Kc28Vo{
     /**
      * 处方号
      */
-    private String AKC220 ;
+    private String AKC220;
     /**
      * 费用项目序号 NUMBER(6)
      */

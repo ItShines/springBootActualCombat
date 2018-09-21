@@ -4,6 +4,7 @@ import java.util.Date;
 
 /**
  * 医保住院登记信息视图（SICK_VISIT_INFO）。用于查询住院登记信息
+ *
  * @author Future
  */
 public class SickVisitInfo {

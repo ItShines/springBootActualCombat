@@ -12,19 +12,20 @@ import org.springframework.context.annotation.Configuration;
  * 4.配置类
  * 配置文件在META-INF/spring.factories,若多配置用','隔开,'\'换行后仍可读。
  * 此时如果配置会产生配置文件冲突，暂未配置
+ *
  * @author Future
  */
 @Configuration
 @EnableConfigurationProperties(HelloServiceProperties.class)
 @ConditionalOnClass(HelloService.class)
-@ConditionalOnProperty(prefix = "hello",value = "enable",matchIfMissing = true)
+@ConditionalOnProperty(prefix = "hello", value = "enable", matchIfMissing = true)
 public class HelloServiceAutoConfiguration {
     @Autowired
     private HelloServiceProperties helloServiceProperties;
 
     @Bean
     @ConditionalOnMissingBean(HelloService.class)
-    public HelloService helloService(){
+    public HelloService helloService() {
         HelloService helloService = new HelloService();
         helloService.setMsg(helloServiceProperties.getMsg());
         return helloService;

@@ -15,12 +15,15 @@ import java.util.List;
 public interface MedicalInterfaceDatabaseDao {
     /**
      * 门诊费用批量保存接口
+     *
      * @param kc28VoList
      * @return
      */
     int batchSaveKc28(List<Kc28Vo> kc28VoList);
+
     /**
      * 住院费用批量保存接口
+     *
      * @param kc27VoList
      * @return
      */

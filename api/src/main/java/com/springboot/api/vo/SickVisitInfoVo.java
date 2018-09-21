@@ -3,6 +3,7 @@ package com.springboot.api.vo;
 /**
  * 接收查询住院登记信息参数
  * 接收医保结算主信息视图参数,包含门诊住院
+ *
  * @author Future
  */
 public class SickVisitInfoVo {

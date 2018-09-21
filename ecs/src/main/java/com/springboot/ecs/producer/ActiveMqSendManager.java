@@ -19,7 +19,7 @@ public class ActiveMqSendManager {
      * @param destination
      * @param data
      */
-    public void send(Destination destination, String data){
-        jmsMessagingTemplate.convertAndSend(destination,data);
+    public void send(Destination destination, String data) {
+        jmsMessagingTemplate.convertAndSend(destination, data);
     }
 }

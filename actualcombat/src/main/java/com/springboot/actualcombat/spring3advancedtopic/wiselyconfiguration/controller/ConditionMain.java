@@ -12,6 +12,6 @@ public class ConditionMain {
         AnnotationConfigApplicationContext configApplicationContext = new AnnotationConfigApplicationContext(WiselyConditionConfig.class);
         ListService listService = configApplicationContext.getBean(ListService.class);
         System.out.println(configApplicationContext.getEnvironment().getProperty("os.name") +
-                "系统下的列表命令为："+listService.showListCmd());
+                "系统下的列表命令为：" + listService.showListCmd());
     }
 }

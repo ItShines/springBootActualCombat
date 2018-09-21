@@ -17,52 +17,51 @@ public class TestClass {
 
         ProducerClass producerClass = new ProducerClass();
 
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5,10,
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, 10,
                 5, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
 
 
-
-        threadPoolExecutor.execute(new Runnable(){
+        threadPoolExecutor.execute(new Runnable() {
             @Override
             public void run() {
                 for (int i = 100; i < 200; i++) {
-                    producerClass.sendQueue("第"+i+"次，发送信息，信息内容为： 张三丰您好！");
+                    producerClass.sendQueue("第" + i + "次，发送信息，信息内容为： 张三丰您好！");
                 }
             }
         });
 
-        threadPoolExecutor.execute(new Runnable(){
+        threadPoolExecutor.execute(new Runnable() {
             @Override
             public void run() {
                 for (int i = 200; i < 300; i++) {
-                    producerClass.sendQueue("第"+i+"次，发送信息，信息内容为： 张三丰您好！");
+                    producerClass.sendQueue("第" + i + "次，发送信息，信息内容为： 张三丰您好！");
                 }
             }
         });
 
-        threadPoolExecutor.execute(new Runnable(){
+        threadPoolExecutor.execute(new Runnable() {
             @Override
             public void run() {
                 for (int i = 300; i < 400; i++) {
-                    producerClass.sendQueue("第"+i+"次，发送信息，信息内容为： 张三丰您好！");
+                    producerClass.sendQueue("第" + i + "次，发送信息，信息内容为： 张三丰您好！");
                 }
             }
         });
 
-        threadPoolExecutor.execute(new Runnable(){
+        threadPoolExecutor.execute(new Runnable() {
             @Override
             public void run() {
                 for (int i = 400; i < 500; i++) {
-                    producerClass.sendQueue("第"+i+"次，发送信息，信息内容为： 张三丰您好！");
+                    producerClass.sendQueue("第" + i + "次，发送信息，信息内容为： 张三丰您好！");
                 }
             }
         });
 
-        threadPoolExecutor.execute(new Runnable(){
+        threadPoolExecutor.execute(new Runnable() {
             @Override
             public void run() {
                 for (int i = 500; i < 600; i++) {
-                    producerClass.sendQueue("第"+i+"次，发送信息，信息内容为： 张三丰您好！");
+                    producerClass.sendQueue("第" + i + "次，发送信息，信息内容为： 张三丰您好！");
                 }
             }
         });

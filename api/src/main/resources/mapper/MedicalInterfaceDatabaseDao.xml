@@ -10,14 +10,14 @@
         CKC160,CKC161,CKC169,CKC170,
         CKC171,CKE081,CKE085,CKE086,
         CKE089,CKE090,AAC002,SKA003)
-        <foreach collection="list" item="item" index="index" separator="UNION ALL" >
+        <foreach collection="list" item="item" index="index" separator="UNION ALL">
             (select
-                #{item.AKB020},#{item.AKC220},#{item.CKC158},#{item.AAE011},
-                to_date(#{item.AAE036},'yyyy-MM-dd HH24:mi:ss'),#{item.AKA063},#{item.AKC222},#{item.AKC223},
-                #{item.AKC227},#{item.CKC197},#{item.CKC198},#{item.CKC159},
-                #{item.CKC160},#{item.CKC161},#{item.CKC169},#{item.CKC170},
-                #{item.CKC171},#{item.CKE081},#{item.CKE085},#{item.CKE086},
-                #{item.CKE089},#{item.CKE090},#{item.AAC002},#{item.SKA003}
+            #{item.AKB020},#{item.AKC220},#{item.CKC158},#{item.AAE011},
+            to_date(#{item.AAE036},'yyyy-MM-dd HH24:mi:ss'),#{item.AKA063},#{item.AKC222},#{item.AKC223},
+            #{item.AKC227},#{item.CKC197},#{item.CKC198},#{item.CKC159},
+            #{item.CKC160},#{item.CKC161},#{item.CKC169},#{item.CKC170},
+            #{item.CKC171},#{item.CKE081},#{item.CKE085},#{item.CKE086},
+            #{item.CKE089},#{item.CKE090},#{item.AAC002},#{item.SKA003}
             from dual)
         </foreach>
     </insert>
@@ -33,16 +33,16 @@
         CKC160,CKC161,CKC169,CKC170,
         CKC171,CKE081,CKE085,CKE086,
         CKE089,CKE090,SKA003,CKC188)
-        <foreach collection="list" item="item" index="index" separator="UNION ALL" >
+        <foreach collection="list" item="item" index="index" separator="UNION ALL">
             (select
-                #{item.AKB020},
-                #{item.CKC179},#{item.AKC190},
-                #{item.AKC220},#{item.CKC158},#{item.AAE011},
-                to_date(#{item.AAE036},'yyyy-MM-dd HH24:mi:ss'),#{item.AKA063},#{item.AKC222},#{item.AKC223},
-                #{item.AKC227},#{item.CKC197},#{item.CKC198},#{item.CKC159},
-                #{item.CKC160},#{item.CKC161},#{item.CKC169},#{item.CKC170},
-                #{item.CKC171},#{item.CKE081},#{item.CKE085},#{item.CKE086},
-                #{item.CKE089},#{item.CKE090},#{item.SKA003},#{item.CKC188}
+            #{item.AKB020},
+            #{item.CKC179},#{item.AKC190},
+            #{item.AKC220},#{item.CKC158},#{item.AAE011},
+            to_date(#{item.AAE036},'yyyy-MM-dd HH24:mi:ss'),#{item.AKA063},#{item.AKC222},#{item.AKC223},
+            #{item.AKC227},#{item.CKC197},#{item.CKC198},#{item.CKC159},
+            #{item.CKC160},#{item.CKC161},#{item.CKC169},#{item.CKC170},
+            #{item.CKC171},#{item.CKE081},#{item.CKE085},#{item.CKE086},
+            #{item.CKE089},#{item.CKE090},#{item.SKA003},#{item.CKC188}
             from dual)
         </foreach>
     </insert>

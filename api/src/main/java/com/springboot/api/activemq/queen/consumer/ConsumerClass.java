@@ -14,7 +14,7 @@ public class ConsumerClass {
     ActiveMqManager activeMqManager;
 
     @JmsListener(destination = "queueFirstTest")
-    public void getQueue(String message){
+    public void getQueue(String message) {
         System.out.println("收到的 message 是：" + message);
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 /**
  * @author Future
  */
-public class WindowsCondition implements Condition{
+public class WindowsCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {

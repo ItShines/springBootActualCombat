@@ -8,6 +8,7 @@ import java.lang.annotation.*;
 /**
  * 1.组合注解
  * 组合@Configuration 和@ComponentScan注解
+ *
  * @author Future
  */
 @Target(ElementType.TYPE)
@@ -18,9 +19,10 @@ import java.lang.annotation.*;
 public @interface WiselyConfiguration {
     /**
      * 覆盖value
+     *
      * @return
      */
-    String[] value () default {
+    String[] value() default {
 
     };
 }

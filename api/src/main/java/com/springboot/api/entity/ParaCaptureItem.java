@@ -5,6 +5,7 @@ package com.springboot.api.entity;
  * 该视图中的字段“ITEM_CODE”为收费项目的唯一编码，
  * 医院HIS需要在自己的收费项目表中扩展一个字段与其进行对应关系维护，
  * 并在录入处方时在处方明细表中写入该字段
+ *
  * @author Future
  */
 public class ParaCaptureItem {
@@ -112,7 +113,7 @@ public class ParaCaptureItem {
     /**
      * 生育有效标志（1表示该目录已删除；0表示有效）VARCHAR2(1)
      */
-    private String  deleteFlag501;
+    private String deleteFlag501;
 
     /**
      * 居民有效标志（1表示该目录已删除；0表示有效）VARCHAR2(1)

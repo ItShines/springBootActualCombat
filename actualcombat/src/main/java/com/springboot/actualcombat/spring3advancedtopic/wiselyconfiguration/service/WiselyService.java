@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class WiselyService {
-    public void outpResult(){
+    public void outpResult() {
         System.out.println("从组合注解里面获取Bean");
     }
 }

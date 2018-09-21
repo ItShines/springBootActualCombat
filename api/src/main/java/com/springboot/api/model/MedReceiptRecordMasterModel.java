@@ -4,8 +4,8 @@ package com.springboot.api.model;
  * @author Future
  */
 public class MedReceiptRecordMasterModel {
-     private Object Data;
-     private String pid="s0004";
+    private Object Data;
+    private String pid = "s0004";
 
     public Object getData() {
         return Data;

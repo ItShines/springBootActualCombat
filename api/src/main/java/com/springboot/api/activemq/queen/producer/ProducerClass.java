@@ -17,12 +17,11 @@ public class ProducerClass {
     ActiveMqManager activeMqManager;
 
     /**
-     *
      * @param data
      */
-    public void sendQueue(String data){
+    public void sendQueue(String data) {
         Destination destination = new ActiveMQQueue("queueFirstTest");
-        activeMqManager.send(destination,data);
+        activeMqManager.send(destination, data);
     }
 
 }

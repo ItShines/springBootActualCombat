@@ -11,7 +11,7 @@ public class ViewCodeModel {
 
     private List<ViewCode> data;
 
-    private String pid ="s0001";
+    private String pid = "s0001";
 
     public List<ViewCode> getData() {
         return data;

@@ -22,11 +22,11 @@ public class EcsControllerClass {
     private ProducerService producerService;
 
     @Scheduled(fixedDelay = 3000)
-    public void thread(){
-        ThreadPoolExecutor threadPools = new ThreadPoolExecutor(5,10,4,
+    public void thread() {
+        ThreadPoolExecutor threadPools = new ThreadPoolExecutor(5, 10, 4,
                 TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
-        for(int i=0;i < 5;i++){
-            String message = "每隔3秒发5次！！！当前第"+(i+1)+"次发送,时间戳为：" + System.currentTimeMillis();
+        for (int i = 0; i < 5; i++) {
+            String message = "每隔3秒发5次！！！当前第" + (i + 1) + "次发送,时间戳为：" + System.currentTimeMillis();
             threadPools.execute(() -> producerService.sendMessage(message));
         }
     }

@@ -5,9 +5,10 @@ import java.util.Date;
 
 /**
  * 医保门诊接口表KC28
+ *
  * @author Future
  */
-public class Kc28{
+public class Kc28 {
     private static final long serialVersionUID = 1L;
     /**
      * 医疗机构编号
@@ -16,7 +17,7 @@ public class Kc28{
     /**
      * 处方号
      */
-    private String AKC220 ;
+    private String AKC220;
     /**
      * 费用项目序号 NUMBER(6)
      */

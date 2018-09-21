@@ -6,9 +6,10 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 
 /**
  * 1 判断Macos条件
+ *
  * @author Future
  */
-public class MacosCondition implements Condition{
+public class MacosCondition implements Condition {
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
         String property = conditionContext.getEnvironment().getProperty("os.name");

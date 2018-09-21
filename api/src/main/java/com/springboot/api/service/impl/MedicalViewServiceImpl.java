@@ -29,30 +29,34 @@ public class MedicalViewServiceImpl implements MedicalViewService {
 
     /**
      * 在查询目录视图前执行
+     *
      * @param
      * @return HashMap
      */
-    public HashMap selectDual(){
+    public HashMap selectDual() {
         return medicalViewDao.selectDual(responseCodeConstant.hospital_number);
     }
+
     /**
      * 查询项目名称与代码的对应关系
+     *
      * @return List<ViewCode>
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public List<ViewCode> selectViewCode(){
+    public List<ViewCode> selectViewCode() {
         selectDual();
         return medicalViewDao.selectViewCode();
     }
 
     /**
      * 医保收费项目目录视图
+     *
      * @return List<ParaCaptureItem>
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public List<ParaCaptureItem> selectParaCaptureItem(){
+    public List<ParaCaptureItem> selectParaCaptureItem() {
         selectDual();
         return medicalViewDao.selectParaCaptureItem();
     }
@@ -62,12 +66,13 @@ public class MedicalViewServiceImpl implements MedicalViewService {
      * RESIDENCE_NO：住院号
      * HOSPITAL_NUMBER：医院编号
      * 两个参数为必填项！
+     *
      * @param sickVisitInfoVo
      * @return SickVisitInfo
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public SickVisitInfo findSickVisitInfo(SickVisitInfoVo sickVisitInfoVo){
+    public SickVisitInfo findSickVisitInfo(SickVisitInfoVo sickVisitInfoVo) {
         selectDual();
         SickVisitInfo sickVisitInfo = medicalViewDao.findSickVisitInfo(sickVisitInfoVo);
         return sickVisitInfo;
@@ -76,6 +81,7 @@ public class MedicalViewServiceImpl implements MedicalViewService {
     /**
      * 医保结算主信息视图
      * 获取门诊、住院结算信息
+     *
      * @param sickVisitInfoVo
      * @return
      */

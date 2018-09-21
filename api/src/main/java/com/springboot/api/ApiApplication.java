@@ -7,6 +7,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
  * MapperScan扫描Dao层
+ *
  * @author Future
  */
 @SpringBootApplication
@@ -14,7 +15,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @ServletComponentScan("com.springboot.api.servlet")
 public class ApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ApiApplication.class, args);
+    }
 }

@@ -15,15 +15,16 @@ public class BeanConfig {
 
     /**
      * initMethod和destroyMethod指定BeanWayService中的initMethod()和destroyMethon()构造函数执行完之后执行，Bean销毁前执行
+     *
      * @return
      */
-    @Bean(initMethod = "initMethod",destroyMethod = "destroyMethon")
-    BeanWayService beanWayService(){
+    @Bean(initMethod = "initMethod", destroyMethod = "destroyMethon")
+    BeanWayService beanWayService() {
         return new BeanWayService();
     }
 
     @Bean
-    Jsr250WayService jsr250WayService(){
+    Jsr250WayService jsr250WayService() {
         return new Jsr250WayService();
     }
 

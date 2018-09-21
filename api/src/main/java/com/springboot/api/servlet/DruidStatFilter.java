@@ -8,13 +8,14 @@ import javax.servlet.annotation.WebInitParam;
 /**
  * 配置Filter
  * druid过滤器.
+ *
  * @author Future
  */
-@WebFilter(filterName = "druidWebStatFilter",urlPatterns = "/*",
-    initParams = {
-        //忽略资源
-        @WebInitParam(name="exclusions",value="*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*")
-    })
-public class DruidStatFilter extends WebStatFilter{
+@WebFilter(filterName = "druidWebStatFilter", urlPatterns = "/*",
+        initParams = {
+                //忽略资源
+                @WebInitParam(name = "exclusions", value = "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*")
+        })
+public class DruidStatFilter extends WebStatFilter {
 
 }

@@ -7,14 +7,16 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class BeanWayService {
-    public void initMethod(){
+    public void initMethod() {
         System.out.println("@Bean-init-method");
     }
-    public BeanWayService(){
+
+    public BeanWayService() {
         super();
         System.out.println("初始化构造函数-BeanWayService");
     }
-    public void destroyMethon(){
+
+    public void destroyMethon() {
         System.out.println("@Bean-destroy-method");
     }
 }

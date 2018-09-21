@@ -16,6 +16,7 @@ import java.io.IOException;
 /**
  * 使用@PropertySource()指定文件地址
  * classpath 对应为resources路径
+ *
  * @author Future
  */
 @Configuration

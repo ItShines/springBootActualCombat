@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 3.事件发布类
+ *
  * @author Future
  */
 @Component
@@ -18,9 +19,9 @@ public class EventPulisher {
     @Autowired
     private ApplicationContext applicationContext;
 
-    public void pulish(String message){
+    public void pulish(String message) {
         //使用ApplicationContext的publishEvent发布事件
-        applicationContext.publishEvent(new EventBean(this,message));
+        applicationContext.publishEvent(new EventBean(this, message));
     }
 
 }

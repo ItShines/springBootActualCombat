@@ -15,8 +15,8 @@ public class ProducerService {
     @Autowired
     private ActiveMqSendManager activeMqSendManager;
 
-    public void sendMessage(String message){
+    public void sendMessage(String message) {
         Destination destination = new ActiveMQQueue("queueProducerTest");
-        activeMqSendManager.send(destination,message);
+        activeMqSendManager.send(destination, message);
     }
 }

@@ -42,10 +42,12 @@ public class MedicalViewController {
 
     /**
      * 测试接口
+     *
      * @return
      */
     @RequestMapping(value = "/test")
-    public @ResponseBody Object test() {
+    public @ResponseBody
+    Object test() {
         BaseResponseModel baseResponseModel = new BaseResponseModel();
         baseResponseModel.setCode(responseCodeConstant.success);
         baseResponseModel.setMessage("测试访问成功，可以正常使用！！！");
@@ -55,10 +57,12 @@ public class MedicalViewController {
 
     /**
      * 查询项目名称与代码的对应关系
+     *
      * @return
      */
     @RequestMapping(value = "/selectViewCode")
-    public @ResponseBody Object selectViewCode() {
+    public @ResponseBody
+    Object selectViewCode() {
         logger.info("selectViewCode() is start!");
         BaseResponseModel responseModel = new BaseResponseModel();
         try {
@@ -69,13 +73,13 @@ public class MedicalViewController {
             responseModel.setCode(responseCodeConstant.success);
             responseModel.setMessage("查询成功！");
             responseModel.setResponseTime(new Date());
-        } catch (Exception e){
+        } catch (Exception e) {
             String tmp = e.getMessage();
             e.printStackTrace();
             responseModel.setCode(responseCodeConstant.error);
             responseModel.setMessage("服务器异常！异常信息为: " + tmp.substring(tmp.indexOf("ORA-"), tmp.indexOf("The") - 7));
             logger.info("服务器异常！异常信息为: " + tmp);
-        }finally {
+        } finally {
             logger.info("selectViewCode() is end");
         }
         return responseModel;
@@ -83,10 +87,12 @@ public class MedicalViewController {
 
     /**
      * 医保收费项目目录视图
+     *
      * @return
      */
     @RequestMapping(value = "/selectParaCaptureItem")
-    public @ResponseBody Object selectParaCaptureItem() {
+    public @ResponseBody
+    Object selectParaCaptureItem() {
         logger.info("selectParaCaptureItem() is start!");
         BaseResponseModel responseModel = new BaseResponseModel();
         try {
@@ -97,13 +103,13 @@ public class MedicalViewController {
             responseModel.setCode(responseCodeConstant.success);
             responseModel.setMessage("查询成功！");
             responseModel.setResponseTime(new Date());
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             String tmp = e.getMessage();
             responseModel.setCode(responseCodeConstant.error);
             responseModel.setMessage("服务器异常！异常信息为: " + tmp.substring(tmp.indexOf("ORA-"), tmp.indexOf("The") - 7));
             logger.info("服务器异常！异常信息为: " + tmp);
-        }finally {
+        } finally {
             logger.info("selectParaCaptureItem() is end");
         }
         return responseModel;
@@ -111,11 +117,13 @@ public class MedicalViewController {
 
     /**
      * 医保住院-查询是否医保中心登记
+     *
      * @param request
      * @return
      */
     @RequestMapping("/findSickVisitInfo")
-    public @ResponseBody Object findSickVisitInfo(HttpServletRequest request) {
+    public @ResponseBody
+    Object findSickVisitInfo(HttpServletRequest request) {
         logger.info("findSickVisitInfo() is start");
         BaseResponseModel baseResponseModel = new BaseResponseModel();
         try {
@@ -125,7 +133,7 @@ public class MedicalViewController {
                 baseResponseModel.setCode(responseCodeConstant.clinic_param_null);
                 baseResponseModel.setMessage("客户端参数为null！");
                 return baseResponseModel;
-            }else {
+            } else {
                 sickVisitInfoVo.setHospitalNumber(responseCodeConstant.hospital_number);
                 SickVisitInfo sickVisitInfo = medicalViewService.findSickVisitInfo(sickVisitInfoVo);
                 SickVisitInfoModel visitInfoModel = new SickVisitInfoModel();
@@ -149,11 +157,13 @@ public class MedicalViewController {
 
     /**
      * 医保结算主信息视图
+     *
      * @param request
      * @return
      */
     @RequestMapping("/selectMedReceiptRecordMaster")
-    public @ResponseBody Object selectMedReceiptRecordMaster(HttpServletRequest request){
+    public @ResponseBody
+    Object selectMedReceiptRecordMaster(HttpServletRequest request) {
         logger.info("selectMedReceiptRecordMaster() is start!");
         BaseResponseModel responseModel = new BaseResponseModel();
         try {
@@ -163,19 +173,19 @@ public class MedicalViewController {
                 responseModel.setCode(responseCodeConstant.clinic_param_null);
                 responseModel.setMessage("客户端参数为null！");
                 return responseModel;
-            }else if(StringUtils.isBlank(sickVisitInfoVo.getResidenceNo()) && StringUtils.isBlank(sickVisitInfoVo.getVisitNumber())){
+            } else if (StringUtils.isBlank(sickVisitInfoVo.getResidenceNo()) && StringUtils.isBlank(sickVisitInfoVo.getVisitNumber())) {
                 responseModel.setCode(responseCodeConstant.clinic_param_null);
                 responseModel.setMessage("客户端参数为null！");
                 return responseModel;
-            }else {
+            } else {
                 sickVisitInfoVo.setHospitalNumber(responseCodeConstant.hospital_number);
-                if(MagicValueConstant.one.equals(sickVisitInfoVo.getPayType())){
+                if (MagicValueConstant.one.equals(sickVisitInfoVo.getPayType())) {
                     sickVisitInfoVo.setPayType(MagicValueConstant.one);
-                }else if(MagicValueConstant.two.equals(sickVisitInfoVo.getPayType())){
+                } else if (MagicValueConstant.two.equals(sickVisitInfoVo.getPayType())) {
                     sickVisitInfoVo.setPayType(MagicValueConstant.two);
-                }else if(MagicValueConstant.three.equals(sickVisitInfoVo.getPayType())){
+                } else if (MagicValueConstant.three.equals(sickVisitInfoVo.getPayType())) {
                     sickVisitInfoVo.setPayType(MagicValueConstant.three);
-                }else {
+                } else {
                     sickVisitInfoVo.setPayType(MagicValueConstant.one);
                 }
                 MedReceiptRecordMasterModel medReceiptRecordMasterModel = new MedReceiptRecordMasterModel();
@@ -185,13 +195,13 @@ public class MedicalViewController {
                 responseModel.setMessage("查询成功！");
                 responseModel.setCode(responseCodeConstant.success);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             String message = e.getMessage();
             responseModel.setMessage("服务器异常！异常信息为: " + message.substring(message.indexOf("ORA-"), message.indexOf("The") - 7));
             responseModel.setCode(responseCodeConstant.error);
             logger.info("服务器异常！异常信息为: " + message);
             e.printStackTrace();
-        }finally {
+        } finally {
             responseModel.setResponseTime(new Date());
             logger.info("selectMedReceiptRecordMaster() is end!");
         }

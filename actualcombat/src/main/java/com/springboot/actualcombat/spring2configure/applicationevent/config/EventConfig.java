@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 4.配置类
+ *
  * @author Future
  */
 @Configuration

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springboot.api.dao.MedicalViewDao">
     <!--在查询目录视图前执行 -->
-    <select id="selectDual" parameterType="java.lang.String" resultType="java.util.HashMap" >
+    <select id="selectDual" parameterType="java.lang.String" resultType="java.util.HashMap">
         SELECT SYSDATE FROM DUAL WHERE SET_PARAM(#{hospitalNumber})=#{hospitalNumber}
     </select>
 
@@ -15,137 +15,137 @@
     <!--查询医保收费项目目录 -->
     <select id="selectParaCaptureItem" resultType="com.springboot.api.entity.ParaCaptureItem">
         SELECT
-              ITEM_TYPE AS "itemType",
-              ITEM_CODE AS "itemCode",
-              ITEM_NAME AS "itemName",
-              ITEM_SPEC AS "itemSpec",
-              ITEM_FORM_CODE AS "itemFormCode",
-              ITEM_FORM AS "itemForm",
-              PRICE_UNIT_CODE AS "priceUnitCode",
-              PRICE_UNIT AS "priceUnit",
-              PRODUCTION_UNIT AS "productionUnit",
-              APPROVAL_NUMBER AS "approvalNumber",
-              COMMON_NAME AS "commonName",
-              MNEMONIC AS "mnemonic",
-              RECIPT_FLAG AS "reciptFlag",
-              SUMARY_TYPE AS "sumaryType",
-              ITEM_GRADE_301 AS "itemGrade301",
-              ITEM_GRADE_401 AS "itemGrade401",
-              ITEM_GRADE_501 AS "itemGrade501",
-              ITEM_GRADE_801 AS "itemGrade801",
-              DELETE_FLAG_301 AS "deleteFlag301",
-              DELETE_FLAG_401 AS "deleteFlag401",
-              DELETE_FLAG_501 AS "deleteFlag501",
-              DELETE_FLAG_801 AS "deleteFlag801",
-              PRICE_MAX_1 AS "priceMax1",
-              PRICE_MAX_2 AS "priceMax2",
-              PRICE_MAX_3 AS "priceMax3",
-              PRICE_MAX_4 AS "priceMax4",
-              PRICE_MAX_5 AS "priceMax5",
-              PRICE_MAX_6 AS "priceMax6",
-              HOSPITAL_MAX AS "hospitalMax",
-              LIMIT_TYPE AS "limitType",
-              LIMIT_NAME AS "limitName",
-              CLINIC_RECEIPT AS "clinicReceipt",
-              INH_RECEIPT AS "inhReceipt",
-              REMARKS AS "remarks"
+        ITEM_TYPE AS "itemType",
+        ITEM_CODE AS "itemCode",
+        ITEM_NAME AS "itemName",
+        ITEM_SPEC AS "itemSpec",
+        ITEM_FORM_CODE AS "itemFormCode",
+        ITEM_FORM AS "itemForm",
+        PRICE_UNIT_CODE AS "priceUnitCode",
+        PRICE_UNIT AS "priceUnit",
+        PRODUCTION_UNIT AS "productionUnit",
+        APPROVAL_NUMBER AS "approvalNumber",
+        COMMON_NAME AS "commonName",
+        MNEMONIC AS "mnemonic",
+        RECIPT_FLAG AS "reciptFlag",
+        SUMARY_TYPE AS "sumaryType",
+        ITEM_GRADE_301 AS "itemGrade301",
+        ITEM_GRADE_401 AS "itemGrade401",
+        ITEM_GRADE_501 AS "itemGrade501",
+        ITEM_GRADE_801 AS "itemGrade801",
+        DELETE_FLAG_301 AS "deleteFlag301",
+        DELETE_FLAG_401 AS "deleteFlag401",
+        DELETE_FLAG_501 AS "deleteFlag501",
+        DELETE_FLAG_801 AS "deleteFlag801",
+        PRICE_MAX_1 AS "priceMax1",
+        PRICE_MAX_2 AS "priceMax2",
+        PRICE_MAX_3 AS "priceMax3",
+        PRICE_MAX_4 AS "priceMax4",
+        PRICE_MAX_5 AS "priceMax5",
+        PRICE_MAX_6 AS "priceMax6",
+        HOSPITAL_MAX AS "hospitalMax",
+        LIMIT_TYPE AS "limitType",
+        LIMIT_NAME AS "limitName",
+        CLINIC_RECEIPT AS "clinicReceipt",
+        INH_RECEIPT AS "inhReceipt",
+        REMARKS AS "remarks"
         FROM VIEW_CODE
     </select>
 
     <!--医保住院-查询是否医保中心登记-->
     <select id="findSickVisitInfo" resultType="com.springboot.api.entity.SickVisitInfo">
         SELECT
-              AREAID AS "areaid",
-              HOSPITAL_NUMBER AS "hospitalNumber",
-              PERSONAL_NUMBER AS "personalNumber",
-              PERSONAL_IC AS "personalIc",
-              ADMISSION_DATE AS "admissionDate",
-              UNIT_NUMBER AS "unitNumber",
-              UNIT_NAME AS "unitName",
-              NAME AS "name",
-              SEX AS "sex",
-              BIRTHMONTH AS "birthmonth",
-              RESIDENCE_NO AS "residenceNo",
-              PERSONAL_TYPE AS "personalType",
-              SICK_TYPE AS "sickType",
-              CHARGE_SOURCE AS "chargeSource",
-              HOSPITAL_GRADE AS "hospitalGrade",
-              IN_COUNT AS "inCount",
-              DISCHARGE_DATE AS "dischargeDate",
-              ADMISSION_DEPT AS "admissionDept",
-              DISCHARGE_DEPT AS "dischargeDept",
-              DIAGNOSIS_NAMEIN AS "diagnosisNamein",
-              DIAGNOSIS_NAMEOUT AS "diagnosisNameout",
-              ROOM_NO AS "roomNo",
-              BED_NO AS "bedNo",
-              BAL_DATE AS "balDate",
-              CONTACT_ADDRESS AS "contactAddress",
-              CONTACT_PHONE AS "contactPhone",
-              IN_DEPT_NAME AS "inDeptName",
-              OUT_DEPT_NAME AS "outDeptName",
-              OPERATOR AS "operator",
-              OPERATE_DATE AS "operateDate",
-              MEMO AS "memo",
-              CHARGE_NUMBER AS "chargeNumber",
-              INSURANCE_TYPE AS "insuranceType"
+        AREAID AS "areaid",
+        HOSPITAL_NUMBER AS "hospitalNumber",
+        PERSONAL_NUMBER AS "personalNumber",
+        PERSONAL_IC AS "personalIc",
+        ADMISSION_DATE AS "admissionDate",
+        UNIT_NUMBER AS "unitNumber",
+        UNIT_NAME AS "unitName",
+        NAME AS "name",
+        SEX AS "sex",
+        BIRTHMONTH AS "birthmonth",
+        RESIDENCE_NO AS "residenceNo",
+        PERSONAL_TYPE AS "personalType",
+        SICK_TYPE AS "sickType",
+        CHARGE_SOURCE AS "chargeSource",
+        HOSPITAL_GRADE AS "hospitalGrade",
+        IN_COUNT AS "inCount",
+        DISCHARGE_DATE AS "dischargeDate",
+        ADMISSION_DEPT AS "admissionDept",
+        DISCHARGE_DEPT AS "dischargeDept",
+        DIAGNOSIS_NAMEIN AS "diagnosisNamein",
+        DIAGNOSIS_NAMEOUT AS "diagnosisNameout",
+        ROOM_NO AS "roomNo",
+        BED_NO AS "bedNo",
+        BAL_DATE AS "balDate",
+        CONTACT_ADDRESS AS "contactAddress",
+        CONTACT_PHONE AS "contactPhone",
+        IN_DEPT_NAME AS "inDeptName",
+        OUT_DEPT_NAME AS "outDeptName",
+        OPERATOR AS "operator",
+        OPERATE_DATE AS "operateDate",
+        MEMO AS "memo",
+        CHARGE_NUMBER AS "chargeNumber",
+        INSURANCE_TYPE AS "insuranceType"
         FROM SICK_VISIT_INFO
         WHERE
-              SET_PARAM(#{hospitalNumber}) = #{hospitalNumber}
-              AND RESIDENCE_NO = #{residenceNo}
-              AND HOSPITAL_NUMBER = #{hospitalNumber}
+        SET_PARAM(#{hospitalNumber}) = #{hospitalNumber}
+        AND RESIDENCE_NO = #{residenceNo}
+        AND HOSPITAL_NUMBER = #{hospitalNumber}
     </select>
 
     <!--医保结算主信息视图-->
     <select id="selectMedReceiptRecordMaster" resultType="com.springboot.api.entity.MedReceiptRecordMaster">
         SELECT
-            HOSPITAL_NUMBER AS "hospitalNumber",
-            CHARGE_NUMBER AS "chargeNumber",
-            UNIT_NUMBER AS "unitNumber",
-            PERSONAL_NUMBER AS "personalNumber",
-            NAME AS "name",
-            SEX AS "sex",
-            BIRTH_DATE AS "birthDate",
-            PERSONAL_TYPE AS "personalType",
-            SICK_TYPE AS "sickType",
-            CHARGE_SOURCE AS "chargeSource",
-            HOSPITAL_GRADE AS "hospitalGrade",
-            IN_COUNT AS "inCount",
-            ADMISSION_DATE AS "admissionDate",
-            DISCHARGE_DATE AS "dischargeDate",
-            DIAGNOSIS_NAME AS "diagnosisName",
-            RESIDENCE_NO AS "residenceNo",
-            TOTAL_COST AS "totalCost",
-            PAY_WAVE AS "payWave",
-            PAY_SIDE1 AS "paySide1",
-            PAY_SIDE2 AS "paySide2",
-            PAY_SIDE3 AS "paySide3",
-            PAY_SIDE4 AS "paySide4",
-            PAY_SIDE5 AS "paySide5",
-            PAY_SIDE6 AS "paySide6",
-            PAY_SIDE7 AS "paySide7",
-            PAY_SIDE8 AS "paySide8",
-            VISIT_NUMBER AS "visitNumber",
-            TAKE_FLAG AS "takeFlag",
-            HANDLE_DATE AS "handleDate",
-            PAY_TYPE AS "payType",
-            OPERATOR AS "operator",
-            CKB002 AS "ckb002",
-            CKB006 AS "ckb006",
-            CKB012 AS "ckb012",
-            CKB019 AS "ckb019"
+        HOSPITAL_NUMBER AS "hospitalNumber",
+        CHARGE_NUMBER AS "chargeNumber",
+        UNIT_NUMBER AS "unitNumber",
+        PERSONAL_NUMBER AS "personalNumber",
+        NAME AS "name",
+        SEX AS "sex",
+        BIRTH_DATE AS "birthDate",
+        PERSONAL_TYPE AS "personalType",
+        SICK_TYPE AS "sickType",
+        CHARGE_SOURCE AS "chargeSource",
+        HOSPITAL_GRADE AS "hospitalGrade",
+        IN_COUNT AS "inCount",
+        ADMISSION_DATE AS "admissionDate",
+        DISCHARGE_DATE AS "dischargeDate",
+        DIAGNOSIS_NAME AS "diagnosisName",
+        RESIDENCE_NO AS "residenceNo",
+        TOTAL_COST AS "totalCost",
+        PAY_WAVE AS "payWave",
+        PAY_SIDE1 AS "paySide1",
+        PAY_SIDE2 AS "paySide2",
+        PAY_SIDE3 AS "paySide3",
+        PAY_SIDE4 AS "paySide4",
+        PAY_SIDE5 AS "paySide5",
+        PAY_SIDE6 AS "paySide6",
+        PAY_SIDE7 AS "paySide7",
+        PAY_SIDE8 AS "paySide8",
+        VISIT_NUMBER AS "visitNumber",
+        TAKE_FLAG AS "takeFlag",
+        HANDLE_DATE AS "handleDate",
+        PAY_TYPE AS "payType",
+        OPERATOR AS "operator",
+        CKB002 AS "ckb002",
+        CKB006 AS "ckb006",
+        CKB012 AS "ckb012",
+        CKB019 AS "ckb019"
         FROM
-            MED_RECEIPT_RECORD_MASTER
+        MED_RECEIPT_RECORD_MASTER
         WHERE
-            SET_PARAM(#{hospitalNumber}) = #{hospitalNumber}
-            <if test="visitNumber !=null and visitNumber !=''" >
-                AND VISIT_NUMBER = #{visitNumber}
-                AND PAY_TYPE = #{payType}
-            </if>
-            <if test="residenceNo != null and residenceNo !=''">
-                AND RESIDENCE_NO = #{residenceNo}
-            </if>
-            AND HOSPITAL_NUMBER = #{hospitalNumber}
-            <![CDATA[
+        SET_PARAM(#{hospitalNumber}) = #{hospitalNumber}
+        <if test="visitNumber !=null and visitNumber !=''">
+            AND VISIT_NUMBER = #{visitNumber}
+            AND PAY_TYPE = #{payType}
+        </if>
+        <if test="residenceNo != null and residenceNo !=''">
+            AND RESIDENCE_NO = #{residenceNo}
+        </if>
+        AND HOSPITAL_NUMBER = #{hospitalNumber}
+        <![CDATA[
               AND rownum <= '1'
             ]]>
     </select>

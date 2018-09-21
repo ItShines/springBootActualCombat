@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 人员信息实体类
+ *
  * @author Future
  */
 public class Person {

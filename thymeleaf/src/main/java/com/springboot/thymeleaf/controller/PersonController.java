@@ -19,7 +19,7 @@ public class PersonController {
         Person person = new Person();
         person.setName("张三丰");
         person.setAge(22);
-        model.addAttribute("person",person);
+        model.addAttribute("person", person);
         return "index";
     }
 }

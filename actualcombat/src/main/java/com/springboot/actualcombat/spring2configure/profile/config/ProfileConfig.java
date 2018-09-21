@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Profile;
 
 /**
  * 2.配置Profile
+ *
  * @author Future
  */
 @Configuration
@@ -14,21 +15,23 @@ public class ProfileConfig {
 
     /**
      * Profile 为dev时 实例化devProfileBean.
+     *
      * @return
      */
     @Bean
     @Profile("dev")
-    public ProfileBean devProfileBean(){
+    public ProfileBean devProfileBean() {
         return new ProfileBean("from development profile");
     }
 
     /**
      * Profile 为prod时 实例化prodProfileBean
+     *
      * @return
      */
     @Bean
     @Profile("prod")
-    public ProfileBean prodProfileBean(){
+    public ProfileBean prodProfileBean() {
         return new ProfileBean("from production profile");
     }
 }

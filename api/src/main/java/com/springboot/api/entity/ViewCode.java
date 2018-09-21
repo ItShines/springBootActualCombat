@@ -4,9 +4,10 @@ import java.io.Serializable;
 
 /**
  * 代码视图（VIEW_CODE）,该视图可查询项目名称与代码的对应关系
+ *
  * @author Future
  */
-public class ViewCode implements Serializable{
+public class ViewCode implements Serializable {
 
     private static final long serialVersionUID = 2L;
     /**
