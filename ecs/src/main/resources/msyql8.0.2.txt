@@ -1,0 +1,79 @@
+1.解压tar文件
+2.mv到指定目录
+	mv mysql /use/local/mysql/
+3.创建用户组，添加用户，授权
+	groupadd mysql
+	useradd mysql
+	mkdir -p /data/mysql
+	chown -R mysql:mysql /data/mysql/
+	chmod -R 775 /data/mysql/
+4.vi /etc/my.cnf 修改配置文件
+	[mysqld]
+	server-id=1
+	port=3306
+	mysqlx_port=33060
+	mysqlx_socket=/data/mysql/mysql.sock
+	datadir=/data/mysql
+	socket=/data/mysql/mysql.sock
+	pid-file=/data/mysql/mysqld.pid
+	log-error=/data/mysql/error.log
+	user=mysql
+	basedir=/usr/local/mysql/
+	lower-case-table-names=0
+	#加密方式 选择老的
+	default_authentication_plugin=mysql_native_password
+	#一下为优化配置可不写
+	slow-query-log=1
+	slow-query-log-file=/data/mysql/slow.log
+	long_query_time=0.2
+	log-bin=/data/mysql/bin.log
+	relay-log=relay.log
+	binlog_format=ROW
+	relay_log_recovery =1
+	character-set-client-handshake=false
+	character-set-server = utf8mb4
+	collation-server=utf8mb4_unicode_ci
+	init_connect='SET NAMES utf8mb4'
+	innodb_buffer_pool_size = 128M
+	join_buffer_size=2M
+	read_rnd_buffer_size=2M
+	log_timestamps=SYSTEM
+
+5.初始化
+	mysqld --initialize --user=mysql
+	--basedir=/usr/local/mysql/
+	--datadir=/data/mysql/data
+	--innodb_undo_directory=/data/mysql/undo
+	--innodb_undo_tablespaces=4
+	--socket=/data/mysql/mysql.socket
+	初始化失败，一般授权问题，不显示临时密码一般初始化失败。
+
+	获取临时密码
+		cat /data/mysql/error.log | grep -i password
+	设置启动文件
+		cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
+	配置环境变量 可不处理
+			vim /etc/profile.d/mysql.sh
+			cat /etc/profile.d/mysql.sh
+				export PATH=$PATH:/usr/local/mysql/bin
+			source /etc/profile.d/mysql.sh
+6.启动
+	/etc/init.d/mysql start
+7.登录
+	/usr/local/mysql/bin/mysql -uroot -p --socket=/data/mysql/mysql.socket
+8.改密
+	ALTER USER 'root'@'localhost' IDENTIFIED BY "123456";（默认采用新加密方式）
+9.授权
+	show databases;
+	use mysql;
+	select host,user from user;
+	create user 'mysql'@'%' identified by '123456';
+	flush privileges;
+	update user set password = password('123456789') where user = 'mysql';
+	flush privileges;
+	delete from user where user='mysql' and host='%';
+	flush privileges;
+	grant all privileges on *.* to mysql@'%' with grant option;
+	flush privileges;
+	revoke all on *.* from mysql@'%';
+	flush privileges;
