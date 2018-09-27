@@ -13,10 +13,9 @@ import javax.jms.Destination;
 public class ProducerService {
 
     @Autowired
-    private ActiveMqSendManager activeMqSendManager;
+    private ActiveMqSendUtil activeMqSendUtil;
 
     public void sendMessage(String message) {
-        Destination destination = new ActiveMQQueue("queueProducerTest");
-        activeMqSendManager.send(destination, message);
+        activeMqSendUtil.send("queueProducerTest", message);
     }
 }

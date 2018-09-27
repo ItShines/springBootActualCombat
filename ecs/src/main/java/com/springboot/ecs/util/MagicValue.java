@@ -9,47 +9,47 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @PropertySource("classpath:magic-value.properties")
-public abstract class MagicValue {
+public class MagicValue {
     /**
      * String
      */
     @Value("${magicValue.zero}")
-    public static String zero;
+    public String zero;
 
     @Value("${magicValue.one}")
-    public static String one;
+    public String one;
 
     @Value("${magicValue.two}")
-    public static String two;
+    public String two;
 
     @Value("${magicValue.three}")
-    public static String three;
+    public String three;
 
     @Value("${magicValue.four}")
-    public static String four;
+    public String four;
 
     @Value("${magicValue.five}")
-    public static String five;
+    public String five;
     /**
      * int
      */
     @Value("${magicValue.zero}")
-    public static int intZero;
+    public int intZero;
 
     @Value("${magicValue.one}")
-    public static int intOne;
+    public int intOne;
 
     @Value("${magicValue.two}")
-    public static int intTwo;
+    public int intTwo;
 
     @Value("${magicValue.three}")
-    public static int intThree;
+    public int intThree;
 
     @Value("${magicValue.four}")
-    public static int intFour;
+    public int intFour;
 
     @Value("${magicValue.five}")
-    public static int intFive;
+    public int intFive;
 
 
 }

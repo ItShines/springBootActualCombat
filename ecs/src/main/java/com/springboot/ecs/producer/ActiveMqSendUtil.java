@@ -11,22 +11,23 @@ import javax.jms.*;
  * @author zhangsanfeng
  */
 @Component
-public class ActiveMqSendManager {
+public class ActiveMqSendUtil{
 
     @Autowired
     private JmsMessagingTemplate jmsMessagingTemplate;
 
     /**
-     * @param destination
+     * @param destinationName
      * @param data
      */
-    public void send(Destination destination, String data) {
+    public void send(String destinationName, String data) {
 //        jmsMessagingTemplate.convertAndSend(destination, data);
         try {
             //第一步：建立ConnectionFactory工厂对象，需要填入用户名、密码，以及要连接的地址，均使用默认即可，默认端口为："tcp://localhost:61616"
             ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(ActiveMQConnectionFactory.DEFAULT_USER,
-                    ActiveMQConnectionFactory.DEFAULT_PASSWORD, ActiveMQConnectionFactory.DEFAULT_BROKER_URL);
-            // 第二步：通过ConnectionFactory工厂对象，我们创阿金一个Connection连接，并且采用Connection的start方法开启连接，Connection默认是关闭的
+                    ActiveMQConnectionFactory.DEFAULT_PASSWORD,
+                    "tcp://39.105.89.202:61616");
+            // 第二步：通过ConnectionFactory工厂对象，我们创建一个Connection连接，并且采用Connection的start方法开启连接，Connection默认是关闭的
             Connection connection = connectionFactory.createConnection();
             connection.start();
             // 第三步：通过Connection对象创建Session会话，用于接收消息，参数配置1是事务，参数配置2是签收模式，一般我们设置自动签收
@@ -42,7 +43,7 @@ public class ActiveMqSendManager {
              * Destination destination = session.createQueue("HelloWorld");
              * 第五步：通过session对象创建消息的发送和接收对象(生产者和消费者)MessageProducer、MessageConsumer
              */
-            destination = session.createQueue("queueProducerTest");
+            Destination destination = session.createQueue(destinationName);
             MessageProducer messageProducer = session.createProducer(destination);
             // 第六步：使用MessageProducer的setSelveryMode方法为其设置持久化特性和非持久化特性(DeliveryMode)//
             messageProducer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);

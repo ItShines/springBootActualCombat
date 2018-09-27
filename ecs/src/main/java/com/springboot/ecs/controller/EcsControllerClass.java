@@ -22,17 +22,16 @@ public class EcsControllerClass {
     @Autowired
     private ProducerService producerService;
 
+    @Autowired
+    private MagicValue magicValue;
+
     @Scheduled(fixedDelay = 3000)
     public void thread() {
         ThreadPoolExecutor threadPools = new ThreadPoolExecutor(5, 10, 4,
                 TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
-        System.out.println(MagicValue.five);
-        System.out.println(MagicValue.three);
-        System.out.println(MagicValue.intTwo);
-        for (int i = 0; i < MagicValue.intFive; i++) {
+        for (int i = 0; i < magicValue.intFive; i++) {
             String message = "每隔3秒发5次！！！当前第" + (i + 1) + "次发送,时间戳为：" + System.currentTimeMillis();
             threadPools.execute(() -> producerService.sendMessage(message));
-            System.out.println(message);
         }
     }
 
