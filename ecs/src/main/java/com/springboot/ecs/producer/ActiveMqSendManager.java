@@ -27,7 +27,7 @@ public class ActiveMqSendManager {
             ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(ActiveMQConnectionFactory.DEFAULT_USER,
                     ActiveMQConnectionFactory.DEFAULT_PASSWORD, ActiveMQConnectionFactory.DEFAULT_BROKER_URL);
             // 第二步：通过ConnectionFactory工厂对象，我们创阿金一个Connection连接，并且采用Connection的start方法开启连接，Connection默认是关闭的
-            Connection connection = (Connection) connectionFactory.createConnection();
+            Connection connection = connectionFactory.createConnection();
             connection.start();
             // 第三步：通过Connection对象创建Session会话，用于接收消息，参数配置1是事务，参数配置2是签收模式，一般我们设置自动签收
             Session session = connection.createSession(Boolean.TRUE, Session.CLIENT_ACKNOWLEDGE);
@@ -42,7 +42,8 @@ public class ActiveMqSendManager {
              * Destination destination = session.createQueue("HelloWorld");
              * 第五步：通过session对象创建消息的发送和接收对象(生产者和消费者)MessageProducer、MessageConsumer
              */
-            MessageProducer messageProducer = session.createProducer(null);
+            destination = session.createQueue("queueProducerTest");
+            MessageProducer messageProducer = session.createProducer(destination);
             // 第六步：使用MessageProducer的setSelveryMode方法为其设置持久化特性和非持久化特性(DeliveryMode)//
             messageProducer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
             // 第七步：最后我们使用JMS规范的TextMessage形式创建数据(通过Session对象)，并用MessageProducer的send方法发送数据，
@@ -55,6 +56,7 @@ public class ActiveMqSendManager {
             //  第四个参数：优先级
             //  第五个参数：消息在jms上面的存放时间
             messageProducer.send(destination, textMessage, DeliveryMode.PERSISTENT, 0, 1000 * 60);
+            System.out.println(textMessage);
             // 使用事务提交
             session.commit();
             if (connection != null) {

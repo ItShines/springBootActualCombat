@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @PropertySource("classpath:magic-value.properties")
-public class MagicValue {
+public abstract class MagicValue {
     /**
      * String
      */
@@ -50,4 +50,6 @@ public class MagicValue {
 
     @Value("${magicValue.five}")
     public static int intFive;
+
+
 }
