@@ -28,7 +28,8 @@ public class CmsController {
             request.setMethod(MethodType.POST);
             request.setRoleArn(roleArn);
             request.setRoleSessionName(roleSessionName);
-            request.setPolicy(null); // 可选，此处可以填写为NULL
+            // 可选，此处可以填写为NULL
+            request.setPolicy(null);
             final AssumeRoleResponse response = client.getAcsResponse(request);
 
             // 2. 查询应用分组列表

@@ -1,6 +1,7 @@
 package com.springboot.ecs.controller;
 
 import com.springboot.ecs.producer.ProducerService;
+import com.springboot.ecs.util.MagicValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -25,7 +26,7 @@ public class EcsControllerClass {
     public void thread() {
         ThreadPoolExecutor threadPools = new ThreadPoolExecutor(5, 10, 4,
                 TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < MagicValue.intFive; i++) {
             String message = "每隔3秒发5次！！！当前第" + (i + 1) + "次发送,时间戳为：" + System.currentTimeMillis();
             threadPools.execute(() -> producerService.sendMessage(message));
         }
