@@ -46,7 +46,7 @@ public class ActiveMqSendUtil{
             Destination destination = session.createQueue(destinationName);
             MessageProducer messageProducer = session.createProducer(destination);
             // 第六步：使用MessageProducer的setSelveryMode方法为其设置持久化特性和非持久化特性(DeliveryMode)//
-            messageProducer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+            messageProducer.setDeliveryMode(DeliveryMode.PERSISTENT);
             // 第七步：最后我们使用JMS规范的TextMessage形式创建数据(通过Session对象)，并用MessageProducer的send方法发送数据，
             // 同理客户端使用receive方法进行接收数据。最后不要忘记关机Connection连接
             TextMessage textMessage = session.createTextMessage();
