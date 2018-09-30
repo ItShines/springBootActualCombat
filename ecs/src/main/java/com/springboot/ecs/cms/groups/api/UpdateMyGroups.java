@@ -8,7 +8,7 @@ import com.aliyuncs.cms.model.v20180308.UpdateMyGroupsResponse;
 import com.aliyuncs.profile.DefaultProfile;
 
 /**
- * 查询应用分组-GetMyGroups 问题记录
+ * 修改应用分组-UpdateMyGroups 问题记录
  * 1.描述
  *      根据ID修改应用分组, 为空的字段将不会被修改
  *      描述指定不清晰
@@ -39,7 +39,7 @@ public class UpdateMyGroups {
         //GroupId String 分组的ID 必传
         updateMyGroupsRequest.setGroupId("1301506");
         //GroupName String 应用分组名称 非必传
-        updateMyGroupsRequest.setGroupName("");
+        updateMyGroupsRequest.setGroupName("一个ECS");
         //Type String 分组的类型，有些分组是从其他系统同步而来，非必传
         // custom[为默认值，表示用户自己通过云监控控制台UI创建的],
         // aone_group[表示这些分组从Aone同步而来],

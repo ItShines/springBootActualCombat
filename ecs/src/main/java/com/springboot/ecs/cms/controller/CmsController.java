@@ -1,4 +1,4 @@
-package com.springboot.ecs.cms;
+package com.springboot.ecs.cms.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.aliyuncs.DefaultAcsClient;
@@ -11,6 +11,9 @@ import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 
+/**
+ * @author wb-ryd460712
+ */
 public class CmsController {
     public static void main(String[] args) {
         String endpoint = "sts.aliyuncs.com";
@@ -28,8 +31,7 @@ public class CmsController {
             request.setMethod(MethodType.POST);
             request.setRoleArn(roleArn);
             request.setRoleSessionName(roleSessionName);
-            // 可选，此处可以填写为NULL
-            request.setPolicy(null);
+            request.setPolicy(null); // 可选，此处可以填写为NULL
             final AssumeRoleResponse response = client.getAcsResponse(request);
 
             // 2. 查询应用分组列表
