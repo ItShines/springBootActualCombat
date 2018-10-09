@@ -1,22 +1,11 @@
-package com.springboot.ecs.consumer;
-
+package com.springboot.ecs.controller;
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 
 import javax.jms.*;
 
-/**
- * @author wb-ryd460712
- */
-@Component
-public class ConsumerClass {
+public class test {
 
-    public void getMessage() {
-        System.out.println(123);
+    public static void main(String[] args) {
         try {
             //第一步：建立ConnectionFactory工厂对象，需要填入用户名、密码、以及要连接的地址，均使用默认即可，默认端口为"tcp://localhost:61616"
             ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("admin",
